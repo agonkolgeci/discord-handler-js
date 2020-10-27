@@ -1,8 +1,25 @@
 # discord-handler-js
 Handler Open-Source for Discord in JavaScript.
+There are all features in this version:
 
-See the `LICENSE` file.
-**After download**, put your **token bot** in 'Configs/config.json'.
+ - Optimization
+ - Structured
+ - Custom Config
 
-Download `discord.js` with `npm install discord.js`.
-Thanks you to using my Discord'Handler !
+## » Requirements :
+
+ - Git
+ - Node
+ - Module Discord.js
+ 
+## » Downloading : 
+
+Clone the repo using command ` git clone https://github.com/Jielos/discord-handler-js.zip ` or download the .rar with https://github.com/Jielos/discord-handler-js/archive/main.zip .
+
+## » Setup :
+
+Put your secret token bot in ` Configs/config.json `. Install the module ` discord.js ` with ` npm install discord.js ` in terminal.
+
+## » Start :
+
+To start the handler, run this command in terminal ` node Main.js ` .
