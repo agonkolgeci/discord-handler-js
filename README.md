@@ -8,8 +8,8 @@ There are all features in this version:
 
 ## » Requirements :
 
- - Git
- - Node
+ - (Git)
+ - NodeJs
  - Module Discord.js
  
 ## » Downloading : 
