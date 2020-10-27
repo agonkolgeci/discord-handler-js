@@ -2,6 +2,7 @@ const { Client, Collection } = require('discord.js');
 const { readdirSync } = require('fs');
 const { join } = require('path');
 
+const Database = require('./Configs/Utils/Database');
 const Commands = require('./Structure/Handler/Commands');
 const Events = require('./Structure/Handler/Events');
 
@@ -52,6 +53,7 @@ class Main extends Client {
 
         new Commands(this).load('Commands'); // Use a folder name being in the root.
         new Events(this).load('Events'); // Use a folder name being in the root.
+        new Database(this).connect(require('./Configs/database.json'));
     }
 }
 
