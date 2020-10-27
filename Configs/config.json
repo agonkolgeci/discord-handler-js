@@ -1,0 +1,10 @@
+{
+    "Token": "YOUR SECRET TOKEN HERE",
+    "Prefix": "!",
+
+    "Embed": {
+        "Url": "https://jielos.fr/",
+        "Color": "RANDOM",
+        "Footer": "© Jielos.fr - 2020"
+    }
+}
