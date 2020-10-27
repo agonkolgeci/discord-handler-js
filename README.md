@@ -1,5 +1,5 @@
 # discord-handler-js
-Handler Open-Source for Discord in JavaScript.
+Handler Open-Source for Discord in JavaScript. This is the first version of discord-handler-js.
 There are all features in this version:
 
  - Optimization
@@ -14,7 +14,7 @@ There are all features in this version:
  
 ## » Downloading : 
 
-Clone the repo using command ` git clone https://github.com/Jielos/discord-handler-js.zip ` or download the .rar with https://github.com/Jielos/discord-handler-js/archive/master.zip .
+Clone the repo using command ` git clone https://github.com/Jielos/discord-handler-js.zip ` or download the .zip with https://github.com/Jielos/discord-handler-js/archive/master.zip .
 
 ## » Setup :
 
