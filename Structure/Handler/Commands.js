@@ -1,6 +1,6 @@
 module.exports = class Commands {
     /**
-     * Definied the client.
+     * Defined the client.
      * @param {Client} Client - Represents the Discord Client.
      */
     constructor(Client) {
