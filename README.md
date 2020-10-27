@@ -14,7 +14,7 @@ There are all features in this version:
  
 ## » Downloading : 
 
-Clone the repo using command ` git clone https://github.com/Jielos/discord-handler-js.zip ` or download the .rar with https://github.com/Jielos/discord-handler-js/archive/main.zip .
+Clone the repo using command ` git clone https://github.com/Jielos/discord-handler-js.zip ` or download the .rar with https://github.com/Jielos/discord-handler-js/archive/master.zip .
 
 ## » Setup :
 
