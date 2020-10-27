@@ -10,7 +10,7 @@ There are all features in this version:
 
  - (Git)
  - NodeJs
- - Module Discord.js
+ - Module ` discord.js `
  
 ## » Downloading : 
 
