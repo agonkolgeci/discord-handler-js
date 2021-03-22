@@ -11,7 +11,7 @@ There are all features in this version:
  - (git)
  - NodeJS
  - Modules necessary:
-    - **discord.js**
+    - [**discord.js**](https://www.npmjs.com/package/discord.js)
  
 ## » Downloading : 
 
