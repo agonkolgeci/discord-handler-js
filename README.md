@@ -1,3 +1,5 @@
+ ## ⚠️ Attention, ce projet ne subit plus de mise à jour depuis plus d'an.
+
 # discord-handler-js
 Handler Open-Source for Discord in JavaScript.
 There are all features in this version:
