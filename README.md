@@ -37,30 +37,26 @@ discord-handler-js is an optimized Discord bot structure that lets you easily cr
 # Installation
 Please read [Requirements](#requirements) before starting installation.
 
-1. Install this project (2 options):
+1. **Install this project (2 options):**
    - Using command: [`git clone https://github.com/agonkolgeci/discord-handler-js.git`](https://git-scm.com/downloads)
    - Download [the project ZIP](https://github.com/agonkolgeci/discord-handler-js/archive/refs/heads/master.zip) then extract it
 
 
-2. Open the new folder with your favorite text editor
+2. **Open the new folder with your favorite text editor**
 
 
-3. Configure the following files:
+3. **Configure the following files:**
    - `.env` - Application Credentials
    - `src/resources/config.js` - Client Configuration
 
 
-4. Install required packages:
+4. **Install required packages:**
 ```shell
 npm install
 ```
 
-5. Run your bot in normal mode: (otherwise see [sharding mode](#application-sharding))
+5. **Run your bot in normal mode: (otherwise see [sharding mode](#application-sharding))**
 ```shell
-node .
-
-# or
-
 node src/index.js
 ```
 
