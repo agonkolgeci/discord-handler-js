@@ -1,32 +1,20 @@
-module.exports = class Logger {
-    /**
-     * @param client {Client||App} - Discord Client
-     */
-    constructor(client) {
-        this.client = client;
-    }
+import chalk from "chalk";
 
-    /**
-     * @param message {string} - Success message
-     * @returns Process result
-     */
-    success(message) {
-        return console.log(`» ${message}`);
-    }
+const types = {
+    success: { prefix: chalk.green("[SUCCESS]"), log: console.log },
+    info: { prefix: chalk.blue("[INFO]"), log: console.log },
+    warn: { prefix: chalk.yellow("[WARNING]"), log: console.warn },
+    error: { prefix: chalk.red("[ERROR]"), log: console.error }
+}
 
+export default {
     /**
-     * @param message {string} - Info message
-     * @returns Process result
+     * @param type {string} - The log type
+     * @param message {string} - The message content
      */
-    info(message) {
-        return console.log(`• ${message}`);
-    }
+    log: (type, message) => {
+        const selectedType = types[type.toLowerCase()] || { log: console.log };
 
-    /**
-     * @param message {string} - Error message
-     * @returns Process result
-     */
-    error(message) {
-        return console.log(`[!] ${message}`)
+        selectedType.log(`${selectedType.prefix || ""} ${message.replace(">>", chalk.red(">>"))}`);
     }
 }
