@@ -31,7 +31,11 @@ discord-handler-js is an optimized Discord bot structure that lets you easily cr
 - [Credits](#credits)
 
 ## Requirements
+
+### Environnement
 - [Node.js v^16.9.1](https://nodejs.org/) or newer
+
+### Prelude
 - [Discord Application](https://discord.com/developers/docs/getting-started)'s credentials
 
 # Installation
