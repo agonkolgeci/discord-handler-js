@@ -1,6 +1,5 @@
 import {
     SlashCommandBuilder,
-    ContextMenuCommandBuilder,
     EmbedBuilder,
     ActionRowBuilder,
     ButtonBuilder,
