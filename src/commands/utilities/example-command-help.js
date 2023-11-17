@@ -36,6 +36,7 @@ export default [
                             { name: "Version", value: project["version"], inline: true }
                         )
                 ],
+
                 components: [ new ActionRowBuilder().addComponents(exampleButton) ]
             })
         }
