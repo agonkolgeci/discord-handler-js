@@ -163,4 +163,4 @@ discord-handler-js lets you open a connection to a [MySQL database](https://goog
 This project is published under the [GNU General Public License v^3.0](LICENSE). You can download, modify or redistribute - even commercially - this software freely, as long as you specify that your work is a reworking of this project. For more details, please refer to the [license text](LICENSE).
 
 ## Credits
-- Inspiration from [DiscordJS-V14-Bot-Template](https://github.com/P4-Games/DiscordJS-V14-Bot-Template)
+- Inspiration from [DiscordJS-V14-Bot-Template](https://github.com/TFAGaming/DiscordJS-V14-Bot-Template)
