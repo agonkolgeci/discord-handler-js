@@ -48,8 +48,6 @@ Please read [Requirements](#requirements) before starting installation.
 3. Configure the following files:
    - `.env` - Application Credentials
    - `src/resources/config.js` - Client Configuration
-   - (Optional) `src/utils/logger.js` - [Custom Logger](#custom-logger)
-   - (Optional) `src/structure/messages/MessageFormatter.js` - [Client Message Formatter](#client-message-formatter)
 
 
 4. Install required packages:
@@ -120,7 +118,9 @@ export default [
 ```
 
 ## Application Events
-For each event, you must replace `...args` with the event arguments.
+You can implement various events in the same file.
+
+Note that you must replace `...args` with the event arguments.
 
 ```ts
 export default [
@@ -133,7 +133,7 @@ export default [
         }
     },
 
-    ... // You can implement various events in the same file.
+    ... // More events
 ]
 ```
 
