@@ -14,13 +14,22 @@ export default class Database {
     /**
      * Create Database Pool connection
      *
-     * @param credentials {Set} - The database credentials
      * @returns {Promise<Pool|void>}
      */
-    connect = async(credentials) => {
+    connect = async() => {
         try {
-            const pool = await mysql.createPool(credentials);
+            const pool = await mysql.createPool({
+                "host": process.env["DATABASE_HOST"],
+                "database": process.env["DATABASE_NAME"],
+                "user": process.env["DATABASE_USER"],
+                "password": process.env["DATABASE_PASSWORD"],
+                "charset": process.env["DATABASE_CHARSET"],
+                "port": process.env["DATABASE_PORT"]
+            });
+
             await pool.getConnection();
+
+            this.client.logger.log("success", `Successfully established connection with the database.`);
 
             return pool;
         } catch (exception) {

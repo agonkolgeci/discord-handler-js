@@ -17,13 +17,6 @@ export default {
     },
 
     remotes: {
-        database: {
-            "host": "DATABASE_HOST",
-            "database": "DATABASE_NAME",
-            "user": "USERNAME",
-            "password": "PASSWORD",
-            "charset": "utf8mb4",
-            "port": 3306
-        }
+        database: false
     }
 }

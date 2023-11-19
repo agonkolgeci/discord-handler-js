@@ -49,7 +49,7 @@ export default class ExtendedClient extends Client {
     start = async() => {
         this.formatter = new MessageFormatter(this);
 
-        if(this.config.remotes["database"]) this.database = await new Database(this).connect(this.config.remotes["database"]);
+        if(this.config.remotes["database"]) this.database = await new Database(this).connect();
 
         await commands.deploy(this, new URL("../commands/", import.meta.url));
         await events.deploy(this, new URL("../events/", import.meta.url));

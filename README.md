@@ -100,15 +100,15 @@ export default [
     {
         customId: string,
 
-        onButtonInteraction: async(client, interaction) => {
+        onButton: async(client, interaction) => {
             await interaction.reply(`Button ${interaction.customId} used by ${interaction.user} !`);
         },
       
-        onModalSubmitInteraction: async(client, interaction) => {
+        onModalSubmit: async(client, interaction) => {
             await interaction.reply(`Modal ${interaction.customId} submited by ${interaction.user} !`);
         },
 
-        onSelectMenuInteraction: async(client, interaction) => {
+        onSelectMenu: async(client, interaction) => {
             await interaction.reply(`Select Menu ${interaction.customId} used by ${interaction.user} !`);
         }
     },
@@ -140,7 +140,7 @@ export default [
 ## Custom Logger
 discord-handler-js uses a custom logger system (using colors thanks to [chalk](https://www.npmjs.com/package/chalk)).
 
-> You can configure it from the [Logger Module](src/utils/logger.js)
+> You can configure it from the [Logger Module](src/utils/Logger.js)
 
 - Import the Logger Module: `import logger from "path/to/logger.js";`
 - or Use from Extended Client: `ExtendedClient#logger`
@@ -148,14 +148,16 @@ discord-handler-js uses a custom logger system (using colors thanks to [chalk](h
 ## Client Message Formatter
 discord-handler-js uses a message formatting system intended for users.
 
-> You can configure it from the [Configuration](src/resources/config.js)
+> You can configure it from the [configuration](src/resources/config.js)
 
 - Use from Extended Client `ExtendedClient#formatter`
 
 ## MySQL Database (Optional)
 discord-handler-js lets you open a connection to a [MySQL database](https://google.com/search?q=MySQL+database).
 
-> You can configure it from the [Configuration](src/resources/config.js)
+> Configure it from the [.env](.env)
+> 
+> Enable it from the [configuration](src/resources/config.js)
 
 - Use [MySQL 2 pool](https://www.npmjs.com/package/mysql2#using-connection-pools) from ExtendedClient: `ExtendedClient#database`
 
