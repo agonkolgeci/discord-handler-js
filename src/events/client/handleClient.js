@@ -1,4 +1,6 @@
-import CustomError from "../../structure/errors/CustomError.js";
+import CustomError from "../../utils/errors/CustomError.js";
+
+import logger from "../../utils/Logger.js";
 
 export default [
     {
@@ -21,7 +23,7 @@ export default [
                 afk: false
             });
 
-            client.logger.log("success", `Client connected on Discord as @${client.user.globalName || client.user.tag}.`);
+            logger.log("success", `Client connected on Discord as @${client.user.globalName || client.user.tag}.`);
         }
     },
 
@@ -43,15 +45,15 @@ export default [
                 }
 
                 if(interaction.isButton()) {
-                    await client.collection.components.get(interaction.customId)?.onButtonInteraction(client, interaction);
+                    await client.collection.components.get(interaction.customId)?.onButton(client, interaction);
                 }
 
                 if(interaction.isModalSubmit()) {
-                    await client.collection.components.get(interaction.customId)?.onModalSubmitInteraction(client, interaction);
+                    await client.collection.components.get(interaction.customId)?.onModalSubmit(client, interaction);
                 }
 
                 if(interaction.isAnySelectMenu()) {
-                    await client.collection.components.get(interaction.customId)?.onSelectMenuInteraction(client, interaction);
+                    await client.collection.components.get(interaction.customId)?.onSelectMenu(client, interaction);
                 }
             } catch (exception) {
                 if(exception instanceof CustomError) {
@@ -60,7 +62,7 @@ export default [
                         ephemeral: true
                     });
                 } else {
-                    client.logger.log("error", `An error occurred while user '${interaction.user}' executed command '${interaction.commandName}' >> ${exception}`);
+                    logger.log("error", `An error occurred while user '${interaction.user}' executed command '${interaction.commandName}' >> ${exception}`);
                 }
             }
         }

@@ -1,5 +1,6 @@
 import { REST, Routes } from "discord.js";
-import client from "../index.js";
+
+import logger from "../utils/Logger.js";
 
 const rest = new REST({ version: "10" });
 
@@ -10,7 +11,7 @@ export default {
      * @param client {ExtendedClient} - The extended client
      * @param token {string} - Application Token
      * @param id {string} - Application ID
-     * @returns {Promise<*|REST>}
+     * @returns {Promise<void>}
      */
     deploy: async(client, token, id) => {
         try {
@@ -22,11 +23,9 @@ export default {
                 }
             )
 
-            client.logger.log("success", "Successfully deployed application commands to the Discord API.");
-
-            return rest;
+            logger.log("success", "Successfully deployed application commands to the Discord API.");
         } catch (exception) {
-            return client.logger.log("error",`Unable to deployed application commands to the Discord API. >> ${exception}`);
+            logger.log("error",`Unable to deployed application commands to the Discord API. >> ${exception}`);
         }
     }
 }

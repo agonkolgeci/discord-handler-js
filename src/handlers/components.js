@@ -1,3 +1,7 @@
+import { readdirSync } from "fs";
+
+import logger from "../utils/Logger.js";
+
 export default {
     /**
      * Load commands
@@ -7,19 +11,19 @@ export default {
      * @returns {Promise<void>}
      */
     deploy: async(client, baseURL) => {
-        for(const dir of client.readdirSync(baseURL)) {
-            for(const file of client.readdirSync(new URL(`${dir}/`, baseURL)).filter(file => file.endsWith(".js"))) {
+        for(const dir of readdirSync(baseURL)) {
+            for(const file of readdirSync(new URL(`${dir}/`, baseURL)).filter(file => file.endsWith(".js"))) {
                 const module = (await import(new URL(`${dir}/${file}`, baseURL))).default;
 
                 for(const component of module) {
                     if(!component || !component.customId) {
-                        client.logger.log("warn", `Unable to retrieve an component in '${dir}/${file}' due to its incorrect structure.`);
+                        logger.log("warn", `Unable to retrieve an component in '${dir}/${file}' due to its incorrect structure.`);
 
                         continue;
                     }
 
                     if(client.collection.components.has(component.commandId)) {
-                        client.logger.log("warn", `Unable to retrieve component '${dir}/${file}#${component.customId}' because a component under its id already exists.`);
+                        logger.log("warn", `Unable to retrieve component '${dir}/${file}#${component.customId}' because a component under its id already exists.`);
 
                         continue;
                     }
@@ -29,6 +33,6 @@ export default {
             }
         }
 
-        client.logger.log("info",`Successfully loaded ${client.collection.components.size} components.`);
+        logger.log("info",`Successfully loaded ${client.collection.components.size} components.`);
     }
 }

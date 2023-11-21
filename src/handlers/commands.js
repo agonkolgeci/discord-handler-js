@@ -1,3 +1,7 @@
+import { readdirSync } from "fs";
+
+import logger from "../utils/Logger.js";
+
 export default {
     /**
      * Load commands
@@ -7,19 +11,19 @@ export default {
      * @returns {Promise<void>}
      */
     deploy: async(client, baseURL) => {
-        for(const dir of client.readdirSync(baseURL)) {
-            for(const file of client.readdirSync(new URL(`${dir}/`, baseURL)).filter(file => file.endsWith(".js"))) {
+        for(const dir of readdirSync(baseURL)) {
+            for(const file of readdirSync(new URL(`${dir}/`, baseURL)).filter(file => file.endsWith(".js"))) {
                 const module = (await import(new URL(`${dir}/${file}`, baseURL))).default;
 
                 for(const command of module) {
                     if(!command || !command.structure?.name) {
-                        client.logger.log("warn", `Unable to retrieve a command in '${dir}/${file}' due to its incorrect structure.`);
+                        logger.log("warn", `Unable to retrieve a command in '${dir}/${file}' due to its incorrect structure.`);
 
                         continue;
                     }
 
                     if(client.collection.commands.has(command.structure.name)) {
-                        client.logger.log("warn", `Unable to retrieve command '${dir}/${file}#${command.structure?.name}' because a command under its name already exists.`);
+                        logger.log("warn", `Unable to retrieve command '${dir}/${file}#${command.structure?.name}' because a command under its name already exists.`);
 
                         continue;
                     }
@@ -30,6 +34,6 @@ export default {
             }
         }
 
-        client.logger.log("info", `Successfully loaded ${client.collection.commands.size} commands.`);
+        logger.log("info", `Successfully loaded ${client.collection.commands.size} commands.`);
     }
 }

@@ -8,9 +8,7 @@
 import { ShardingManager } from "discord.js";
 
 import logger from "./utils/logger.js";
-
 import dotenv from "dotenv";
-import config from "./resources/config.js" assert { type: "json" };
 
 await dotenv.config();
 
@@ -26,7 +24,7 @@ try {
     await manager.on("shardCreate", shard => logger.info(`Started shard #${shard.id}.`));
     await manager.spawn();
 
-    logger.log("success", `Successfully started the application in sharding mode.`);
+    logger.log("success", `Successfully started the application in SHARDING mode.`);
 } catch (exception) {
     logger.log("error", `An critical error occurred while running in sharding mode >> ${exception}`);
 

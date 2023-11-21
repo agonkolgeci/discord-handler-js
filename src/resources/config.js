@@ -17,6 +17,6 @@ export default {
     },
 
     remotes: {
-        database: false
+        mongodb: false
     }
 }

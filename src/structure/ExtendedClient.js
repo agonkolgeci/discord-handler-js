@@ -2,16 +2,13 @@ import { Client, Collection, Partials, GatewayIntentBits } from "discord.js";
 
 import logger from "../utils/logger.js";
 
-import { readdirSync } from "fs";
-
 import MessageFormatter from "./messages/MessageFormatter.js";
 
-import commands from "../handlers/Commands.js";
-import events from "../handlers/Events.js";
-import components from "../handlers/Components.js";
-
-import rest from "../handlers/Rest.js";
-import Database from "./remote/Database.js";
+import mongoose from "../handlers/mongoose.js";
+import commands from "../handlers/commands.js";
+import events from "../handlers/events.js";
+import components from "../handlers/components.js";
+import rest from "../handlers/rest.js";
 
 export default class ExtendedClient extends Client {
     collection = {
@@ -37,27 +34,26 @@ export default class ExtendedClient extends Client {
         });
 
         this.config = config;
-
-        this.logger = logger;
-
-        this.readdirSync = readdirSync;
     }
 
     /**
      * Start the application
+     *
+     * @param token {string} - The application Token
+     * @param id - The application ID
+     * @returns {Promise<void>}
      */
-    start = async() => {
+    start = async(token, id) => {
         this.formatter = new MessageFormatter(this);
 
-        if(this.config.remotes["database"]) this.database = await new Database(this).connect();
-
+        if(this.config.remotes["mongodb"]) await mongoose.connect(this, process.env["MONGO_DB_URI"])
         await commands.deploy(this, new URL("../commands/", import.meta.url));
         await events.deploy(this, new URL("../events/", import.meta.url));
         await components.deploy(this, new URL("../components/", import.meta.url));
 
-        await rest.deploy(this, process.env["CLIENT_TOKEN"], process.env["CLIENT_ID"]);
+        await rest.deploy(this, token, id);
 
-        await this.login(process.env["CLIENT_TOKEN"]);
+        await this.login(token);
     }
 
     /**

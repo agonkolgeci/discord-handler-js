@@ -6,7 +6,6 @@ const types = {
     warn: { prefix: chalk.yellow("[WARNING]"), log: console.warn },
     error: { prefix: chalk.red("[ERROR]"), log: console.error }
 }
-
 export default {
     /**
      * @param type {string} - The log type

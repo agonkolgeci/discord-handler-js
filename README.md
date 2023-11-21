@@ -25,7 +25,7 @@ discord-handler-js is an optimized Discord bot structure that lets you easily cr
 
 - [Custom Logger](#custom-logger)
 - [Client Message Formatter](#client-message-formatter)
-- [MySQL Database (Optional)](#mysql-database-optional)
+- [MongoDB (Optional)](#mongodb-optional)
 
 
 - [Credits](#credits)
@@ -143,7 +143,6 @@ discord-handler-js uses a custom logger system (using colors thanks to [chalk](h
 > You can configure it from the [Logger Module](src/utils/Logger.js)
 
 - Import the Logger Module: `import logger from "path/to/logger.js";`
-- or Use from Extended Client: `ExtendedClient#logger`
 
 ## Client Message Formatter
 discord-handler-js uses a message formatting system intended for users.
@@ -152,14 +151,11 @@ discord-handler-js uses a message formatting system intended for users.
 
 - Use from Extended Client `ExtendedClient#formatter`
 
-## MySQL Database (Optional)
-discord-handler-js lets you open a connection to a [MySQL database](https://google.com/search?q=MySQL+database).
+## MongoDB (Optional)
+discord-handler-js lets you open a connection to a [MongoDB](https://www.mongodb.com/fr-fr).
 
-> Configure it from the [.env](.env)
-> 
-> Enable it from the [configuration](src/resources/config.js)
-
-- Use [MySQL 2 pool](https://www.npmjs.com/package/mysql2#using-connection-pools) from ExtendedClient: `ExtendedClient#database`
+> - Configure it from the [.env](.env)
+> - Enable it from the [configuration](src/resources/config.js)
 
 ## Licence
 This project is published under the [GNU General Public License v^3.0](LICENSE). You can download, modify or redistribute - even commercially - this software freely, as long as you specify that your work is a reworking of this project. For more details, please refer to the [license text](LICENSE).

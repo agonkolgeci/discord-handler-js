@@ -1,3 +1,7 @@
+import { readdirSync } from "fs";
+
+import logger from "../utils/Logger.js";
+
 export default {
     /**
      * Load events
@@ -7,13 +11,13 @@ export default {
      * @returns {Promise<void>}
      */
     deploy: async(client, baseURL) => {
-        for(const dir of client.readdirSync(baseURL)) {
-            for(const file of client.readdirSync(new URL(`${dir}/`, baseURL)).filter(file => file.endsWith(".js"))) {
+        for(const dir of readdirSync(baseURL)) {
+            for(const file of readdirSync(new URL(`${dir}/`, baseURL)).filter(file => file.endsWith(".js"))) {
                 const module = (await import(new URL(`${dir}/${file}`, baseURL))).default;
 
                 for(const event of module) {
                     if(!event) {
-                        client.logger.log("warn", `Unable to retrieve a event in '${dir}/${file}' due to its incorrect structure.`);
+                        logger.log("warn", `Unable to retrieve a event in '${dir}/${file}' due to its incorrect structure.`);
 
                         continue;
                     }
@@ -29,6 +33,6 @@ export default {
             }
         }
 
-        client.logger.log("info", `Successfully loaded ${client.collection.events.size} events.`);
+        logger.log("info", `Successfully loaded ${client.collection.events.size} events.`);
     }
 }
